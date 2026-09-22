@@ -8,8 +8,15 @@ const correctAnswers: Record<string, number> = {
 };
 
 const app = express();
-const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
-  .split(',')
+const defaultAllowedOrigins = [
+  'http://localhost:5173',
+  'https://teap-beryl.vercel.app'
+];
+
+const allowedOrigins = [
+  ...defaultAllowedOrigins,
+  ...(process.env.CLIENT_ORIGIN || '').split(',')
+]
   .map((origin) => origin.trim())
   .filter(Boolean);
 
