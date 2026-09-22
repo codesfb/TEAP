@@ -1,0 +1,14 @@
+# Dependencies compiled for the machine where npm install was run
+node_modules/
+
+# Build artifacts
+dist/
+
+# Local SQLite data and environment values
+*.db
+.env
+.env.local
+
+# Tooling
+.vite/
+*.log
